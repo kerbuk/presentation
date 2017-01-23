@@ -1,0 +1,353 @@
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<title>ELECTRON</title>
+
+		<meta name="description" content="CSS pre-processor">
+		
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+		<link rel="shortcut icon" href="img/favicon.ico">
+		<link rel="stylesheet" href="../reveal/css/reveal.css">
+		<link rel="stylesheet" href="../reveal/css/theme/black.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="../reveal/lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../reveal/css/print/pdf.css' : '../reveal/css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>ELECTRON</h1>
+					<h3>Build cross platform desktop apps</h3>
+					<p>
+						<small>Biz Application 개발팀  <a href="">박관후</a> / <a href="">ghpark@daou.co.kr</a></small>
+					</p>
+				</section>
+
+				<section>
+					<section>
+						<h2>1.Javascript Is Eating The World</h2>
+						<br>
+						<ul style="list-style-type:none;position:relatie">
+							<li class="fragment" style="position:absolute;top:10%;left:10%"><img style="width:300px" src="img/angular.jpg"/></li>
+							<li class="fragment" style="position:absolute;top:20%;left:20%"><img style="width:300px" src="img/grunt.jpg"/></li>
+							<li class="fragment" style="position:absolute;top:30%;left:30%"><img style="width:300px" src="img/backbone.jpg"/></li>
+						</ul>
+					</section>
+					<section>
+						<h3>CSS Framework</h3>
+						<ul>
+							<li>960 Grid System</li>
+							<li>Blueprint</li>
+							<li>Elastic CSS Framework</li>
+							<li>YUI Grid CSS</li>
+							<li>Less Framework</li>
+						</ul>
+					</section>
+					<section>
+						<h3>CSS pre-processor</h3>
+						<ul>
+							<li>SASS</li>
+							<li>Less</li>
+							<li>Stylus</li>
+							<li>Myth</li>
+							<li>Rework</li>
+							<li>DtCSS</li>
+							<li>Switch CSS</li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>2.Less</h2>
+						<br>
+						<img src="img/less.png"/>
+					</section>
+					<section>
+						<h3>왜 LESS를 사용하나?</h3>
+						<ul>
+							<li class="fragment">시간 절약</li>
+							<li class="fragment">실수 줄이기</li>
+							<li class="fragment">더 조직적으로</li>
+							<li class="fragment">생각보다 쓰기 쉽다.</li>
+							<li class="fragment">반복 줄이기(DRY)</li>
+						</ul>
+					</section>
+					<section>
+						<h3>LESS로 무엇을 할수있나?</h3>
+						<ul>
+							<li class="fragment">변수</li>
+							<li class="fragment">Mixins:재사용 함수</li>
+							<li class="fragment">DOM과 유사한 nesting</li>
+							<li class="fragment">수학적 연산자:floor(),ceilling(),round()</li>
+							<li class="fragment">컬러 연산자:darken(),lighten(),fadein()</li>
+						</ul>
+					</section>
+					<section data-transition="slide" data-background="#4d7e65" data-background-transition="zoom">
+					<h2>변수</h2>
+					<p>
+						@로 시작, 문자나 사이즈를 저장
+					</p>
+					<pre><code>@default:#f3f3f3
+footer { color : @default }
+</code></pre>
+<img style="border:0;width:60px;" src="img/down.png"/>
+<pre><code>footer { color : #f3f3f3 }</code></pre>
+					</section>
+					<section data-transition="slide" data-background="#4d7e65" data-background-transition="zoom">
+					<h2>Mixins</h2>
+					<p>
+						코드 재사용
+					</p>
+					<pre style="width:430px;display:inline-block"><code>.border-radius(@radius:2px){
+	border-radius:@radius;
+}
+@gray: #333;
+header > nav {
+	border : 1px solid @gray;
+	.border-radius;
+}
+aside > nav {
+	.border-radius(5px)
+}					
+					</code></pre>
+					<img style="border:0;width:60px;vertical-align:top;margin-top:185px;" src="img/right.png"/>
+					<pre style="width:430px;display:inline-block"><code>header > nav {
+	border : 1px solid #333;
+	border-radius: 2px;
+}
+aside > nav {
+	border-radius: 5px;
+}					
+					</code></pre>
+				</section>
+				<section data-transition="slide" data-background="#4d7e65" data-background-transition="zoom">
+					<h2>Cascading + Nesting</h2>
+					<p>
+						DOM구조와 유사
+					</p>
+					<pre style="width:430px;display:inline-block"><code>header {
+	color: white;
+	.logo{
+		width:300px;
+		float:left;
+	}
+	#search {
+		width:300px;
+		float:right;
+		input {
+			width:250px;
+			color:#000;
+		}
+	}
+}
+					</code></pre>
+					<img style="border:0;width:60px;vertical-align:top;margin-top:185px;" src="img/right.png"/>
+					<pre style="width:430px;display:inline-block"><code>header {
+	color: white;
+}
+header .logo{
+	width:300px;
+	float:left;
+}
+header #search{
+	width:300px;
+	float:right;
+}
+header #search input{
+	width:250px;
+	color:#000;
+}
+					</code></pre>
+				</section>
+				<section data-transition="slide" data-background="#4d7e65" data-background-transition="zoom">
+					<h2>& 연결자(combinator)</h2>
+					<p>
+						&연결자가 쓰이면 부모셀렉터와 같은 레벨로 해석
+					</p>
+					<pre style="width:430px;display:inline-block"><code>@gray: #333;
+img {
+	border:none;
+	&:focus {
+		border:1px solid @gray;
+	}
+	&.inline {
+		display:inline;
+	}
+}
+					</code></pre>
+					<img style="border:0;width:60px;vertical-align:top;margin-top:120px" src="img/right.png"/>
+					<pre style="width:430px;display:inline-block"><code>img {
+	border:none;
+}
+img:foucs {
+	border:1px solid #333;
+}
+img.inlne {
+	display:inline;
+}
+					</code></pre>
+				</section>
+				<section data-transition="slide" data-background="#4d7e65" data-background-transition="zoom">
+					<h2>그 외</h2>
+					<ul>
+						<li>연산자 : padding: @padding * 10 >> padding: 20px</li>
+						<li>컬러함수 : darken(@color, 20%) >> 20%어둡게 한다.</li>
+						<li> @import "normalize"; </li>
+					</ul>
+					
+				</section>				
+				</section>
+				<section>
+					<section>
+						<h2>3.적용</h2>
+						<br>
+						<ul>
+							<p class="fragment">어디다 쓰지?</p>							
+						</ul>
+					</section>
+					<section data-transition="slide" data-background="#4d7e65" data-background-transition="zoom">
+						<h3>Daou Office</h3>						
+					</section>
+					<section data-transition="slide" data-background="#4d7e65" data-background-transition="zoom">
+						<h3>기존 CSS를 LESS형태로 변환</h3>		
+						<pre style="width:400px;height:450px;display:inline-block"><code>*go_header*/
+/*GNB*/
+.go_wrap header.go_header h1 {line-height:39px}
+.go_wrap header.go_header {border-bottom: none} /*height:40px*/
+.go_wrap header.go_header nav ul li:hover {background-color: #d23428!important}/*medium dark*/
+.go_wrap header.go_header_2row nav ul li.on,
+.go_wrap header.go_header_2row nav ul li.on ul li ,
+.go_wrap header.go_header_2row .my_info ul.ctrl li:hover,
+.go_wrap header.go_header_2row .my_info ul.ctrl li.on ,
+.go_wrap header.go_header_2row nav ul li.on_layer,
+.go_wrap header.go_header_2row .gnb_top_menu {background-color: #bc2f25!important}/*dark*/
+.go_wrap header.go_header ,
+.go_wrap header.go_header nav ul li ul li:hover {background-color: #dd372b ;}/*default*/
+						</code></pre>	
+						<img style="border:0;width:60px;vertical-align:top;margin-top:185px;" src="img/right.png"/>	
+						<pre style="width:400px;height:450px;display:inline-block"><code>@default: #dd372b;
+@deepDark : #a3241b;
+@dark : #bc2f25;
+@mideumDark : #d23428;
+@mideum : #ea857d;
+@mediumLight : #f9e5e4;
+@light : #fceeed;
+
+.go_intro_wrap{
+ 	.go_header{
+      background:none!important
+    }  
+}
+
+.login_box {  
+	a.btn_login {
+		background:@default  /*default*/
+	}
+  
+	a.btn_login:hover {
+		background-color:@dark; 
+		color:#fff;
+	}
+}							
+						</code></pre>		
+					</section>
+					<section data-transition="slide" data-background="#4d7e65" data-background-transition="zoom">
+						<h3>컴파일을 자동화 해볼까?</h3>		
+						<br>
+						<pre style="width:800px;display:inline-block"><code><dependency>
+	<groupId>org.lesscss</groupId>
+	<artifactId>lesscss</artifactId>
+	<version>1.7.0.1.1</version>
+</dependency></code></pre>	
+						<pre style="width:800px;display:inline-block"><code>LessCompiler lessCompiler = new LessCompiler();
+lessCompiler.compile(new File(cssPath+"less/go_color.less"), new File(cssPath+"go_theme_color.css"));
+						</code></pre>
+					</section>
+					<section data-transition="slide" data-background="#4d7e65" data-background-transition="zoom">
+						<h3>색상을 고를수 있으면 더 좋지 않을까?</h3>	
+						<br>
+						<pre style="width:800px;display:inline-block"><code>@default:#fbd5b5;
+@deepDark:#c0c2a5;
+@dark:#dacdaf;
+@mideumDark:#f0d2b2;
+@mideum:#1092307;
+@mediumLight:#117836e;
+@light:#11b8d77;</code></pre>
+						<pre style="width:800px;display:inline-block"><code>@import url("config.less");
+
+.go_intro_wrap{
+ 	.go_header{
+      background:none!important;
+    }  
+}</code></pre>					
+					</section>
+					<section data-transition="slide" data-background="#4d7e65" data-background-transition="zoom">
+						<h3>적용</h3>	
+						<br>
+						<img src="img/admin.png" style="border:0;"/>						
+						<img src="img/web.png" style="border:0;"/>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h3>감사합니다.</h3>						
+					</section>					
+				</section>
+			</div>
+
+		</div>
+
+		<script src="../reveal/lib/js/head.min.js"></script>
+		<script src="../reveal/js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: '../reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: '../reveal/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../reveal/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../reveal/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: '../reveal/plugin/zoom-js/zoom.js', async: true },
+					{ src: '../reveal/plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
